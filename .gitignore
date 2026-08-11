@@ -6,7 +6,7 @@ obj/
 .idea/
 
 # Las credenciales de Firebase nunca se deben de subir
-Config/firebase-credentials.json
+**/Config/firebase-credentials.json
 
 # Archivos locales
 appsettings.Development.json
