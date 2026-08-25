@@ -41,4 +41,26 @@ public class NoteController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
+
+    // GET /api/Note
+    [HttpGet]
+    public async Task<IActionResult> GetMyNotes()
+    {
+        try
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+            
+            var notes = await _noteServices.GetByUser(userId);
+            
+            return Ok(notes);
+            
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }
