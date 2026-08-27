@@ -9,7 +9,6 @@ namespace ProyectoQ3Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class AuthController : ControllerBase
 {
     private readonly AuthService _authService;
