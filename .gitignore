@@ -10,7 +10,6 @@ obj/
 
 # Archivos locales
 appsettings.Development.json
-appsettings.json
 
 # Sistema operativo
 .DS_Store

@@ -9,7 +9,8 @@ public class FirebaseService
     public FirebaseService()
     {
         var credentialPath = Path.Combine(
-            AppContext.BaseDirectory, "Config", "firebase-crendentials.json");
+            AppContext.BaseDirectory, "Config", "firebase-credentials.json");
+        Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialPath);
 
         _firestoreDb = FirestoreDb.Create("web-64");
     }

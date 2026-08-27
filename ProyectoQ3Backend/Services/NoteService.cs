@@ -3,11 +3,11 @@ using ProyectoQ3Backend.Models;
 
 namespace ProyectoQ3Backend.Services;
 
-public class NoteServices
+public class NoteService
 {
     private readonly FirebaseService _firebaseService;
 
-    public NoteServices(FirebaseService firebaseService)
+    public NoteService(FirebaseService firebaseService)
     {
        _firebaseService = firebaseService; 
     }

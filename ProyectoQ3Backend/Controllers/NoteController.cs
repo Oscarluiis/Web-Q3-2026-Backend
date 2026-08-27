@@ -13,11 +13,11 @@ namespace ProyectoQ3Backend.Controller;
 [Authorize]
 public class NoteController : ControllerBase
 {
-    private readonly NoteServices _noteServices;
+    private readonly NoteService _noteService;
     
-    public NoteController(NoteServices noteServices)
+    public NoteController(NoteService noteService)
     {
-        _noteServices = noteServices;
+        _noteService = noteService;
     }
     
     // POST /api/Note
@@ -33,7 +33,7 @@ public class NoteController : ControllerBase
                 return Unauthorized();
             }
             
-            var note = await _noteServices.Create(dto, userId);
+            var note = await _noteService.Create(dto, userId);
             return Ok(note);
         }
         catch (Exception ex)
@@ -53,7 +53,7 @@ public class NoteController : ControllerBase
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
             
-            var notes = await _noteServices.GetByUser(userId);
+            var notes = await _noteService.GetByUser(userId);
             
             return Ok(notes);
             
