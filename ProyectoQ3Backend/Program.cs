@@ -1,10 +1,8 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Tokens.Experimental;
 using ProyectoQ3Backend.Services;
 using Scalar.AspNetCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 /**
@@ -16,7 +14,10 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<NoteService>();
 
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+});
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

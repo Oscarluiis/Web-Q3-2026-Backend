@@ -31,7 +31,7 @@ public class NoteService
             .Document(note.Id)
             .SetAsync(new Dictionary<string, object>
             {
-                { "Id", note.Id },
+                { "taId", note.Id },
                 { "Title", note.Title },
                 { "Content", note.Content },
                 { "Tag", note.Tag },
